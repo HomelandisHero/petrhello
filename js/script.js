@@ -1,33 +1,20 @@
- "use script";
-
+const numberOfFilms = +promt('Скільки фільмів ви вже подивились?', '');
  
+const personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false
 
-const obj = {
-    name: "Serhii", 
-    age: 25,
-    isMarried: false
+};
 
-}; 
+const a = prompt('Один з переглянутих фільмів', ''),
+      b = prompt('Як ви його оцінете?', ''),
+      c = prompt('Один з переглянутих фільмів', ''),
+      d = prompt('Як ви його оцінете?', '');
 
-console.log(obj['name']);
+personalMovieDB.movies[a] = b;
+personalMovieDB.movies[c] = d;
 
-let arr = ['plum.png', 'orange.jpg', 6, 'apple.bmp', {}, []];
-console.log(arr[1]);
-
-let incr = 10,
-    decr = 10;
-
-// ++incr;
-// --decr;
-
-console.log(incr);
-console.log(decr);
-
-console.log(5%2);
-
-console.log(2 + 2 * 2 !== '6');
-
-const isChecked = true, 
-        isClose = true; 
-
-console.log(isChecked || !isClose); 
+console.log(personalMovieDB);
