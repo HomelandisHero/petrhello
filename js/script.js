@@ -165,3 +165,29 @@ console.log(Math.round(num));
 const test = "12.2px";
 // console.log(parseInt(test));
 console.log(parseFloat(test));
+
+// ---- CLASS 19 CALLBACK FUNCTIONS ----
+function first() {
+        //Do something
+        setTimeout(function() {
+                console.log(1);
+        }, 500);
+}
+
+function second() {
+        console.log(2);
+}
+
+first();
+second();
+
+function learnJS(lang, callback) {
+        console.log(`Я вивчаю: ${lang}`);
+        callback();
+}
+
+function done() {
+        console.log('Я пройшов цей урок');
+}
+
+learnJS('JavaScript', done);
