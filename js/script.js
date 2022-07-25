@@ -139,79 +139,79 @@
 //     return a + b;
 // };
 
-const str = "test";
+// const str = "test";
 
 // console.log(str[2] = 'd');
 
 // console.log(str.toUpperCase ());
-console.log(str.toLocaleLowerCase ());
-console.log(str);
+// console.log(str.toLocaleLowerCase ());
+// console.log(str);
 
-const fruit = "Some fruit";
+// const fruit = "Some fruit";
 
-console.log(fruit.indexOf("q"));
+// console.log(fruit.indexOf("q"));
 
-const logg = "Hello World, My Name Is Serhii";
+// const logg = "Hello World, My Name Is Serhii";
 
-// console.log(logg.slice(0, 6));
+// // console.log(logg.slice(0, 6));
 
-// console.log(logg.substring(0, 6));
+// // console.log(logg.substring(0, 6));
 
-console.log(logg.substr(0, 6));
+// console.log(logg.substr(0, 6));
 
-const num = 12.2;
-console.log(Math.round(num));
+// const num = 12.2;
+// console.log(Math.round(num));
 
-const test = "12.2px";
-// console.log(parseInt(test));
-console.log(parseFloat(test));
+// const test = "12.2px";
+// // console.log(parseInt(test));
+// console.log(parseFloat(test));
 
 // ---- CLASS 19 CALLBACK FUNCTIONS ----
 
-function first() {
-        //Do something
-        setTimeout(function() {
-                console.log(1);
-        }, 500);
-}
+// function first() {
+//         //Do something
+//         setTimeout(function() {
+//                 console.log(1);
+//         }, 500);
+// }
 
-function second() {
-        console.log(2);
-}
+// function second() {
+//         console.log(2);
+// }
 
-first();
-second();
+// first();
+// second();
 
-function learnJS(lang, callback) {
-        console.log(`Я вивчаю: ${lang}`);
-        callback();
-}
+// function learnJS(lang, callback) {
+//         console.log(`Я вивчаю: ${lang}`);
+//         callback();
+// }
 
-function done() {
-        console.log('Я пройшов цей урок');
-}
+// function done() {
+//         console.log('Я пройшов цей урок');
+// }
 
-learnJS('JavaScript', done);
+// learnJS('JavaScript', done);
 
-// ---- CLASS 20 "OBJECT" ----
+// // ---- CLASS 20 "OBJECT" ----
 
-const options = {
-        name: 'test',
-        width: 1024,
-        height: 1024,
-        colors: {
-                border: 'black',
-                bg: 'red'
-        }, 
-        makeTest: function() {
-                console.log("Test");
-        }
-};
+// const options = {
+//         name: 'test',
+//         width: 1024,
+//         height: 1024,
+//         colors: {
+//                 border: 'black',
+//                 bg: 'red'
+//         }, 
+//         makeTest: function() {
+//                 console.log("Test");
+//         }
+// };
 
-options.makeTest();
+// options.makeTest();
 
-const {border, bg} = options.colors;
-console.log(border);
+// const {border, bg} = options.colors;
+// console.log(border);
 
 // console.log(Object.keys(options).length); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -234,3 +234,40 @@ console.log(border);
         
 // }
 // console.log(counter);
+
+// ----- CLASS 21 "MASSIFS" -----
+
+const arr = [3, 12, 23, 6, 8];
+arr.sort(compareNum);
+console.log(arr);
+                                        //------- Сортування за порядком
+function compareNum(a, b) {
+        return a - b;
+}
+
+// ----------- Метод forEach - для перебору елементів масиву. ---
+
+// console.log(arr.length); 
+// arr.forEach(function(item, i, arr) {     
+//         console.log(`${i}: ${item} в середені массива ${arr}`);
+// });
+
+// arr.pop();
+// arr.push(10);
+
+// console.log(arr);
+
+// for (let i = 0; i < arr.length; i++) {
+//         console.log(arr[i]);
+// }
+
+// for (let value of arr) {
+//         console.log(value);
+// }
+
+// const str = prompt("", "");
+// const products = str.split(", ");
+// products.sort();
+// console.log(products.join('; '));
+
+// ----- 
