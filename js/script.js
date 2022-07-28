@@ -240,132 +240,164 @@
 
 // ----- CLASS 21 "MASSIFS" -----
 
-const arr = [3, 12, 23, 6, 8];
-arr.sort(compareNum);
-console.log(arr);
-                                        //------- Сортування за порядком
-function compareNum(a, b) {
-        return a - b;
-}
-
-// ----------- Метод forEach - для перебору елементів масиву. ---
-
-// console.log(arr.length); 
-// arr.forEach(function(item, i, arr) {     
-//         console.log(`${i}: ${item} в середені массива ${arr}`);
-// });
-
-// arr.pop();
-// arr.push(10);
-
+// const arr = [3, 12, 23, 6, 8];
+// arr.sort(compareNum);
 // console.log(arr);
-
-// for (let i = 0; i < arr.length; i++) {
-//         console.log(arr[i]);
+//                                         //------- Сортування за порядком
+// function compareNum(a, b) {
+//         return a - b;
 // }
 
-// for (let value of arr) {
-//         console.log(value);
+// // ----------- Метод forEach - для перебору елементів масиву. ---
+
+// // console.log(arr.length); 
+// // arr.forEach(function(item, i, arr) {     
+// //         console.log(`${i}: ${item} в середені массива ${arr}`);
+// // });
+
+// // arr.pop();
+// // arr.push(10);
+
+// // console.log(arr);
+
+// // for (let i = 0; i < arr.length; i++) {
+// //         console.log(arr[i]);
+// // }
+
+// // for (let value of arr) {
+// //         console.log(value);
+// // }
+
+// // const str = prompt("", "");
+// // const products = str.split(", ");
+// // products.sort();
+// // console.log(products.join('; '));
+
+
+// // ----- CL. 22 SPREAD OP. -----
+
+// // let a = 5, 
+// //     b = a;
+
+// // b = b + 5;
+
+// // console.log(b);
+// // console.log(a);
+
+// // const obj = {
+// //         a: 5,
+// //         b: 1
+// // };
+
+// // const copy = obj;  // Передає ПОСИЛАННЯ
+
+// // copy.a = 10; 
+
+// // console.log(copy);
+// // console.log(obj);
+
+// function copy(mainObj) {          //------------- КОПІІ ОБʼЄКТУ
+//         let objCopy = {};
+
+//         let key;
+//         for(key in mainObj) {
+//                 objCopy[key] = mainObj[key];
+//         }
+
+//         return objCopy;
 // }
 
-// const str = prompt("", "");
-// const products = str.split(", ");
-// products.sort();
-// console.log(products.join('; '));
-
-
-// ----- CL. 22 SPREAD OP. -----
-
-// let a = 5, 
-//     b = a;
-
-// b = b + 5;
-
-// console.log(b);
-// console.log(a);
-
-// const obj = {
-//         a: 5,
-//         b: 1
+// const numbers = {
+//         a: 2, 
+//         b: 5, 
+//         c: {
+//             x: 7, 
+//             y:4
+//         }
 // };
 
-// const copy = obj;  // Передає ПОСИЛАННЯ
+// const newNumbers = copy(numbers);
 
-// copy.a = 10; 
+// newNumbers.a =10;
+// newNumbers.c.x = 10;
 
-// console.log(copy);
-// console.log(obj);
+// // console.log(newNumbers);
+// // console.log(numbers);
 
-function copy(mainObj) {          //------------- КОПІІ ОБʼЄКТУ
-        let objCopy = {};
+// const add = {
+//         d: 17,
+//         e: 20
+// };
 
-        let key;
-        for(key in mainObj) {
-                objCopy[key] = mainObj[key];
+// const clone = Object.assign({}, add); //------- ЗʼЄДНАННЯ ДВУХ ОБʼЄКТІВ ----
+
+// clone.d = 20;
+
+// // console.log(add);
+// // console.log(clone);
+
+//  const oldArray = ['a', 'b', 'c'];
+//  const newArray = oldArray.slice();   //-------- КОПІЯ МАССИВУ ----
+
+//  newArray[1] = 'Hello World';
+//  console.log(newArray);
+//  console.log(oldArray);
+
+// const video = ['youtube', 'vimeo', 'tube'],
+//       blogs = ['wordpress', 'livejornal', 'blogger'], 
+//       internet = [...video, ...blogs, 'vk', 'facebook'];
+
+// console.log(internet);
+
+// function log(a, b, c) {
+//         console.log(a);
+//         console.log(b);
+//         console.log(c);
+// }
+
+// const num = [2, 5, 7];
+
+// log(...num);
+
+// const array = ["a", "b"];
+
+// const newAarray = [...array];
+
+// const q = {
+//         one: 1, 
+//         two: 2
+// };
+
+// const nweObj = {...q};
+
+
+//------- CL. 23  ОСНОВИ ОПП ------
+
+let str = "some";
+let strObj = new String(str);
+
+// console.log(typeof(str));
+// console.log(typeof(strObj));
+
+console.dir([1, 2, 3]);
+
+const soldier = { 
+        health: 400,
+        armor: 100, 
+        sayHello: function() {
+                console.log("Hello");
         }
-
-        return objCopy;
-}
-
-const numbers = {
-        a: 2, 
-        b: 5, 
-        c: {
-            x: 7, 
-            y:4
-        }
 };
 
-const newNumbers = copy(numbers);
+const jonh = Object.create(soldier); //------- ДЛЯ ВІДТВОРЕННЯ ПРОТОТИПНИХ ЗВʼЯЗКІВ -----
 
-newNumbers.a =10;
-newNumbers.c.x = 10;
+// const jonh = {
+//         health: 100
+// };
 
-// console.log(newNumbers);
-// console.log(numbers);
+// jonh.__proto__ = soldier; // ------- Old code ---
 
-const add = {
-        d: 17,
-        e: 20
-};
+// Object.setPrototypeOf(jonh, soldier);  //----- ВСТАНОВИЛИ ПРОТОТИП ВІД ДЖОНА ДО СОЛДАТА ----
 
-const clone = Object.assign({}, add); //------- ЗʼЄДНАННЯ ДВУХ ОБʼЄКТІВ ----
-
-clone.d = 20;
-
-// console.log(add);
-// console.log(clone);
-
- const oldArray = ['a', 'b', 'c'];
- const newArray = oldArray.slice();   //-------- КОПІЯ МАССИВУ ----
-
- newArray[1] = 'Hello World';
- console.log(newArray);
- console.log(oldArray);
-
-const video = ['youtube', 'vimeo', 'tube'],
-      blogs = ['wordpress', 'livejornal', 'blogger'], 
-      internet = [...video, ...blogs, 'vk', 'facebook'];
-
-console.log(internet);
-
-function log(a, b, c) {
-        console.log(a);
-        console.log(b);
-        console.log(c);
-}
-
-const num = [2, 5, 7];
-
-log(...num);
-
-const array = ["a", "b"];
-
-const newAarray = [...array];
-
-const q = {
-        one: 1, 
-        two: 2
-};
-
-const nweObj = {...q};
+// console.log(john.armor);
+jonh.sayHello();
