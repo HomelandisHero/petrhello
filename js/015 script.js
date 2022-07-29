@@ -64,7 +64,8 @@ const personalMovieDB = {
             // } else {
             //     personalMovieDB.genres[i - 1] =  genre; 
             // }
-            let genres = prompt(`Введіть улюблені жанри через кому`).toLocaleLowerCase();
+            let genres = prompt(`Введіть улюблені жанри через кому`).toLocaleLowerCase(); //----- toLoc...- записує у нижньому регістрі!!! ----
+            
 
             if (genres === '' || genres == null) {
                 console.log('Ви ввели некоректні данні або не ввели іх зовсім');
