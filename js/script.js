@@ -373,23 +373,23 @@
 
 //------- CL. 23  ОСНОВИ ОПП ------
 
-let str = "some";
-let strObj = new String(str);
+// let str = "some";
+// let strObj = new String(str);
 
 // console.log(typeof(str));
 // console.log(typeof(strObj));
 
-console.dir([1, 2, 3]);
+// console.dir([1, 2, 3]);
 
-const soldier = { 
-        health: 400,
-        armor: 100, 
-        sayHello: function() {
-                console.log("Hello");
-        }
-};
+// const soldier = { 
+//         health: 400,
+//         armor: 100, 
+//         sayHello: function() {
+//                 console.log("Hello");
+//         }
+// };
 
-const jonh = Object.create(soldier); //------- ДЛЯ ВІДТВОРЕННЯ ПРОТОТИПНИХ ЗВʼЯЗКІВ -----
+// const jonh = Object.create(soldier); //------- ДЛЯ ВІДТВОРЕННЯ ПРОТОТИПНИХ ЗВʼЯЗКІВ -----
 
 // const jonh = {
 //         health: 100
@@ -400,60 +400,97 @@ const jonh = Object.create(soldier); //------- ДЛЯ ВІДТВОРЕННЯ П�
 // Object.setPrototypeOf(jonh, soldier);  //----- ВСТАНОВИЛИ ПРОТОТИП ВІД ДЖОНА ДО СОЛДАТА ----
 
 // console.log(john.armor);
-jonh.sayHello();
+// jonh.sayHello();
 
 //------- CL. 26 ДИНАМІЧНА ТИПІЗАЦІЯ ------
 
 // To String
 
-// 1)
-console.log(typeof(String(null)));
-console.log(typeof(String(4)));
+// // 1)
+// console.log(typeof(String(null)));
+// console.log(typeof(String(4)));
 
-// 2)
-console.log(typeof(5 + ''));
+// // 2)
+// console.log(typeof(5 + ''));
 
-const num = 5; 
+// const num = 5; 
 
-console.log("https://vk.com/catalog/" + num);
+// console.log("https://vk.com/catalog/" + num);
 
-const fontSize = 26 + 'px';
+// const fontSize = 26 + 'px';
 
-// To Number
+// // To Number
 
-// 1)
-console.log(typeof(Number('4')));
+// // 1)
+// console.log(typeof(Number('4')));
 
-// 2)
-console.log(typeof(Number(+'5')));
+// // 2)
+// console.log(typeof(Number(+'5')));
 
-// 3)
-console.log(typeof(parseInt("15px", 10)));
+// // 3)
+// console.log(typeof(parseInt("15px", 10)));
 
 
-let answ = +prompt("Hello", "");
+// let answ = +prompt("Hello", "");
 
 // To Boolean 
 
 // 0, '', null, undefined, NaN; -------- будет FALSE
 // 1)
 
-let swicher = null;
+// let swicher = null;
 
-if (swicher) {
-        console.log('Working...');
+// if (swicher) {
+//         console.log('Working...');
+// }
+
+// swicher = 1;
+
+// if (swicher) {
+//         console.log('Working...');
+// }
+
+// // 2)
+
+// console.log(typeof(Boolean('4')));
+
+// // 3)
+
+// console.log(typeof(!!"4444"));
+
+
+//------ CL. 28 ОТРИМАННЯ ЕЛЕМЕНТІВ ЗІ СТОРІНКИ --------
+
+
+
+// ------- CL. 40 РАБОТА З ДАТАМИ -----------------
+
+// const now = new Date();
+// console.log(now);  //------ Відображення чинноі дати ------
+
+// const now = new Date();
+// console.log(now.getFullYear());  //------ Відображення чиний рік------
+
+const now = new Date();
+
+console.log(now.setHours(40));
+console.log(now);
+
+// console.log(now.getMonth()); 
+// console.log(now.getDate());
+// console.log(now.getDay());
+// console.log(now.getHours());
+// console.log(now.getUTCHours());
+
+// console.log(now.getTimezoneOffset());
+// console.log(now.getTime());
+
+let start = new Date();
+
+for (let i = 0; i < 100000; i++) {
+        let some = i ** 3; 
 }
 
-swicher = 1;
+let end = new Date();
 
-if (swicher) {
-        console.log('Working...');
-}
-
-// 2)
-
-console.log(typeof(Boolean('4')));
-
-// 3)
-
-console.log(typeof(!!"4444"));
+alert(`Цикл відпрацював за ${end - start} мілісекунд`);
