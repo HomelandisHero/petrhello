@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 // const result = confirm("Are you here?");
 // console.log(result);
@@ -471,10 +471,10 @@
 // const now = new Date();
 // console.log(now.getFullYear());  //------ Відображення чиний рік------
 
-const now = new Date();
+// const now = new Date();
 
-console.log(now.setHours(40));
-console.log(now);
+// console.log(now.setHours(40));
+// console.log(now);
 
 // console.log(now.getMonth()); 
 // console.log(now.getDate());
@@ -485,12 +485,100 @@ console.log(now);
 // console.log(now.getTimezoneOffset());
 // console.log(now.getTime());
 
-let start = new Date();
+// let start = new Date();
 
-for (let i = 0; i < 100000; i++) {
-        let some = i ** 3; 
-}
+// for (let i = 0; i < 100000; i++) {
+//         let some = i ** 3; 
+// }
 
-let end = new Date();
+// let end = new Date();
 
-alert(`Цикл відпрацював за ${end - start} мілісекунд`);
+// alert(`Цикл відпрацював за ${end - start} мілісекунд`);
+
+
+// ---------- CL. 44 - КОНТЕКСТ ВИЗОВУ --------------
+
+// function showThis(a, b) {     //------- 1 ситуація
+//         console.log(this);
+//         function sum() {
+//                 console.log(this);
+//                 return a + b;
+//         }
+
+//         console.log(sum());
+// }
+// showThis(4, 5);
+
+// const obj = {                //------- 2 ситуація
+//         a: 20, 
+//         b: 15, 
+
+//         sum: function() {
+//                 function shout() {
+//                         console.log(this);
+//                 }
+//                 shout();
+                
+//         } 
+
+// };
+// obj.sum();
+
+// function User(name, id) {            //------- 3 ситуація
+//         this.name = name;
+//         this.id = id;
+//         this.human = true;
+//         this.hello = function() {
+//                 console.log("Hello!" + this.name);
+//         }
+// }
+// let serhii = new User('Serhii', 25);
+
+// function sayName (surname) {
+//         console.log(this);
+//         console.log(this.name + surname);
+// }
+
+// const user = {
+//         name: 'Serhii'
+// };
+
+// sayName.call(user, 'Yev');
+// sayName.apply(user, ['Yev']);
+
+// function count(num) {
+//         return this*num;
+// }
+
+// const double = count.bind(2);   //---double - новая функція у якої є жорстоко привʼязаний контекст(ця ДВОЙКА), яка передається у THIS !
+// console.log(double(3));
+// console.log(double(13));
+
+// ---------- 1) Звичайна функція: this = window, але якщо use strict, то буде undefined 
+// ---------- 2) Контекст у методів обʼєкта і є САМ ОБʼЄКТ
+// ---------- 3) This в конструкаторах та класах - це новий ексемпляр обʼєкту
+// ---------- 4) Ручна привʼязка this: call, apply, bind
+
+const btn = document.querySelector('button');
+
+btn.addEventListener('click', function() {
+        this.style.backgroundColor = 'red';
+});
+
+const obj = {
+        num: 5, 
+        sayNumber: function() {
+                const say = () => {
+                        console.log(this);
+                };
+
+                say();
+
+        }
+};
+
+obj.sayNumber();
+
+const double = (a) => a * 2;    // ------ Якщо дія в одну строчку, то RETURN можна не ставити і записувати ось як в прикладі і все буде працювати!!!
+
+console.log(double(4));
