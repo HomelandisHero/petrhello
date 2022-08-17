@@ -560,26 +560,62 @@
 // ---------- 3) This в конструкаторах та класах - це новий ексемпляр обʼєкту
 // ---------- 4) Ручна привʼязка this: call, apply, bind
 
-const btn = document.querySelector('button');
+// const btn = document.querySelector('button');
 
-btn.addEventListener('click', function() {
-        this.style.backgroundColor = 'red';
-});
+// btn.addEventListener('click', function() {
+//         this.style.backgroundColor = 'red';
+// });
 
-const obj = {
-        num: 5, 
-        sayNumber: function() {
-                const say = () => {
-                        console.log(this);
-                };
+// const obj = {
+//         num: 5, 
+//         sayNumber: function() {
+//                 const say = () => {
+//                         console.log(this);
+//                 };
 
-                say();
+//                 say();
 
+//         }
+// };
+
+// obj.sayNumber();
+
+// const double = (a) => a * 2;    // ------ Якщо дія в одну строчку, то RETURN можна не ставити і записувати ось як в прикладі і все буде працювати!!!
+
+// console.log(double(4));
+
+
+//-------------- CL. 47 CLASS ----------
+
+class Rectangle {
+        constructor(height, width) {
+                this.height = height;
+                this.width = width;
         }
-};
 
-obj.sayNumber();
+        calcArea() {
+                return this.height * this.width;
+        }
+}
+class ColoredRectangleWithText extends Rectangle {
+        constructor(height, width, text, bgColor) {
+                super(height, width);
+                this.text = text;
+                this.bgColor = bgColor;
+        }
 
-const double = (a) => a * 2;    // ------ Якщо дія в одну строчку, то RETURN можна не ставити і записувати ось як в прикладі і все буде працювати!!!
+        showMyProps() {
+                console.log(`Текст: ${this.text}, колір: ${this.bgColor}`);
+        }
+}
 
-console.log(double(4));
+const div = new ColoredRectangleWithText(25, 10, 'Hello World', 'blue');
+
+div.showMyProps();
+console.log(div.calcArea());
+
+// const square = new Rectangle(10, 10);
+// const long = new Rectangle(20, 100);
+
+// console.log(long.calcArea());
+// console.log(square.calcArea());
